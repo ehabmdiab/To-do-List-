@@ -1,0 +1,49 @@
+.container {
+  margin: 10px auto;
+  text-align: center;
+}
+
+.form {
+  margin-bottom: 30px;
+  margin-top: 10px;
+  background-color: #eee;
+  width: fit-content;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 6px;
+  padding: 20px;
+}
+.task {
+  padding: 30px;
+  background-color: #eee;
+  width: 44vw;
+  border-radius: 6px;
+  margin: 2px auto;
+}
+
+.input {
+  width: 40vw;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  caret-color: red;
+}
+.submit {
+  color: white;
+  font-weight: bold;
+  border: none;
+  background-color: red;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 3px;
+}
+
+.container i {
+  font-size: 22px;
+}
+
+.container i:nth-child(2) {
+  color: yellow;
+}
