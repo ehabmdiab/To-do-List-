@@ -18,7 +18,10 @@ const createElement = (task) => {
   margin:10px;
   `;
   element.className = "element";
-  element.id = Date.now();
+  if (!task) element.id = Date.now();
+  else {
+    element.id = task.id;
+  }
   //
   let title = document.createElement("h4");
   title.textContent = input.value == "" ? task.taskname : input.value;
@@ -43,11 +46,13 @@ const createElement = (task) => {
   tasks.append(element);
 
   //
-  array.push({
-    id: element.id,
-    taskname: input.value || task.taskname,
-  });
-  window.localStorage.setItem("tasks", JSON.stringify(array));
+  if (!task) {
+    array.push({
+      id: element.id,
+      taskname: input.value || task.taskname,
+    });
+    window.localStorage.setItem("tasks", JSON.stringify(array));
+  }
   //
 
   btn.addEventListener("click", (e) => {
@@ -62,6 +67,7 @@ const createElement = (task) => {
     // e.currentTarget.parentElement.remove();
     // localStorage.setItem("tasks", JSON.stringify(modifiedArray));
 
+    array = JSON.parse(localStorage.getItem("tasks"));
     array = array.filter(
       (element) => element.id !== `${e.currentTarget.parentElement.id}` //shorter method
     );
